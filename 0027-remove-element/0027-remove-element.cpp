@@ -8,9 +8,7 @@ public:
             if(nums[r] == val) {
                 r++;
             } else {
-                if (l != r) {
-                    nums[l] = nums[r];
-                }
+                nums[l] = nums[r];
                 l++;
                 r++;
             } 
