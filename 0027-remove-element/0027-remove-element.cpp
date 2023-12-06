@@ -7,14 +7,13 @@ public:
         while(r<n) {
             if(nums[r] == val) {
                 r++;
-            } else if (l == r) {
-                l++;
-                r++;
             } else {
-                nums[l] = nums[r];
+                if (l != r) {
+                    nums[l] = nums[r];
+                }
                 l++;
                 r++;
-            }
+            } 
         }
         return l;
     }
