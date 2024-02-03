@@ -8,7 +8,7 @@ class TwoSum {
     
     public void add(int number) {
         if (set.containsKey(number))
-            set.put(number, true);
+            set.replace(number, true);
         else
             set.put(number, false);
     }
