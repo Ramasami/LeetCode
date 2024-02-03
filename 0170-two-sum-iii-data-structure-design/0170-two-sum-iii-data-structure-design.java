@@ -7,8 +7,7 @@ class TwoSum {
     }
     
     public void add(int number) {
-        set.computeIfPresent(number, (k,v)->true);
-        set.putIfAbsent(number, false);
+        set.compute(number, (k,v)->v != null);
     }
     
     public boolean find(int value) {
