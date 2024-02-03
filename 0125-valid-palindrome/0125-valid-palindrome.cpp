@@ -4,11 +4,13 @@ public:
         int l = 0;
         int r = s.length()-1;
         while(l<r) {
-            if(!isAlphaNumberic(toupper(s[l]))) {
+            bool left = isAlphaNumberic(toupper(s[l]));
+            bool right = isAlphaNumberic(toupper(s[r]));
+            if(!left)
                 l++;
-            } else if (!isAlphaNumberic(toupper(s[r]))) {
+            if (!right)
                 r--;
-            } else {
+            if(left && right) {
                 if(toupper(s[l]) != toupper(s[r]))
                     return false;
                 l++;
