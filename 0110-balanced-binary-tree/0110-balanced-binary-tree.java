@@ -21,7 +21,7 @@ class Solution {
         else if (Math.abs(height(root.left,0)-height(root.right,0)) > 1)
             return false;
         else
-            return isBalanced(root.right) && isBalanced(root.left);
+            return isBalanced(root.left) && isBalanced(root.right);
     }
 
     private int height(TreeNode root, int h) {
