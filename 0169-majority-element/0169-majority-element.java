@@ -20,6 +20,8 @@ class Solution {
                 ca--;
             }
         }
+        if(ca==0)
+            return b;
         ca = 0;
         cb = 0;
         for(int i=0;i<nums.length;i++) {
