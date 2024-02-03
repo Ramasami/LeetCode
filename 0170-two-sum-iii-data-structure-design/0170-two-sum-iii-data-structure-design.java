@@ -7,7 +7,10 @@ class TwoSum {
     }
     
     public void add(int number) {
-        set.compute(number, (k,v)->v != null);
+        if (set.containsKey(number))
+            set.put(number, true);
+        else
+            set.put(number, false);
     }
     
     public boolean find(int value) {
