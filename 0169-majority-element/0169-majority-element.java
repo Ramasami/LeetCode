@@ -5,12 +5,8 @@ class Solution {
         for(int i=0;i<nums.length;i++) {
             if(ca == 0) {
                 a = nums[i];
-                ca = 1;
-            } else if (a == nums[i]) {
-                ca++;
-            } else {
-                ca--;
-            }
+            } 
+            ca+=nums[i] == a?1:-1;
         }
         return a;
     }
