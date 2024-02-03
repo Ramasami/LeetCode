@@ -17,10 +17,10 @@ class Solution {
     public int minDepth(TreeNode root) {
         if(root == null)
             return 0;
-        if (root.left == null && root.right == null)
-            return 1;
-        int leftDepth = root.left == null?Integer.MAX_VALUE:minDepth(root.left)+1;
-        int rightDepth = root.right == null?Integer.MAX_VALUE:minDepth(root.right)+1;
-        return Math.min(leftDepth, rightDepth);
+        int leftDepth = minDepth(root.left);
+        int rightDepth = minDepth(root.right);
+        if(leftDepth == 0 || rightDepth == 0)
+            return Math.max(leftDepth, rightDepth) + 1;
+        return Math.min(leftDepth, rightDepth) + 1;
     }
 }
