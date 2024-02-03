@@ -8,11 +8,11 @@ class Solution {
             if(cb == 0) {
                 b = nums[i];
                 cb = 1;
-            } else if (b == nums[i]) {
-                cb++;   
             } else if(ca == 0) {
                 a = nums[i];
                 ca = 1;
+            } else if (b == nums[i]) {
+                cb++;   
             } else if (a == nums[i]) {
                 ca++;
             } else {
