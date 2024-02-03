@@ -1,9 +1,7 @@
 class Solution {
 public:
     bool isHappy(int n) {
-        unordered_set<int> visited;
-        visited.insert(n);
-        while(n!=1) {
+        while(n!=1 && n!=4) {
             int sum = 0;
             int t = n;
             while(t!=0) {
@@ -12,11 +10,7 @@ public:
                 sum+=digit*digit;
             }
             n = sum;
-            if (visited.find(n) != visited.end()) {
-                return false;
-            }
-            visited.insert(n);
         }
-        return true;
+        return n == 1;
     }
 };
