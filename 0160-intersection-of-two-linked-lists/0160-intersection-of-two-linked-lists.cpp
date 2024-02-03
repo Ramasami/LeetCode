@@ -16,9 +16,7 @@ public:
         } else {
             headB = traverse(headB, blen-alen);
         }
-        while(headA!=NULL) {
-            if(headA == headB)
-                return headA;
+        while(headA!=headB) {
             headA = headA->next;
             headB = headB->next;
         }
