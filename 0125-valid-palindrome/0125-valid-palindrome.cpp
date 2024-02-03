@@ -4,14 +4,16 @@ public:
         int l = 0;
         int r = s.length()-1;
         while(l<r) {
-            bool left = isAlphaNumberic(toupper(s[l]));
-            bool right = isAlphaNumberic(toupper(s[r]));
+            char leftChar = toupper(s[l]);
+            char rightChar = toupper(s[r]);
+            bool left = isAlphaNumberic(leftChar);
+            bool right = isAlphaNumberic(rightChar);
             if(!left)
                 l++;
             if (!right)
                 r--;
             if(left && right) {
-                if(toupper(s[l]) != toupper(s[r]))
+                if(leftChar != rightChar)
                     return false;
                 l++;
                 r--;
