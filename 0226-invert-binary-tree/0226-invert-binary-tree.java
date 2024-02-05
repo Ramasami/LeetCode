@@ -15,12 +15,18 @@
  */
 class Solution {
     public TreeNode invertTree(TreeNode root) {
-        if(root == null)
-            return null;
-        TreeNode left = invertTree(root.right);
-        TreeNode right = invertTree(root.left);
-        root.left = left;
-        root.right = right;
+        LinkedList<TreeNode> ll = new LinkedList<>();
+        ll.add(root);
+        while(!ll.isEmpty()) {
+            TreeNode t = ll.pollFirst();
+            if(t == null)
+                continue;
+            TreeNode left = t.left;
+            t.left = t.right;
+            t.right = left;
+            ll.addLast(t.left);
+            ll.addLast(t.right);
+        }
         return root;
     }
 }
