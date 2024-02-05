@@ -3,7 +3,6 @@ public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
         vector<int> vec;
         unordered_set<int> set1;
-        unordered_set<int> set2;
         
         
         for(int i = 0;i<nums1.size();i++)
