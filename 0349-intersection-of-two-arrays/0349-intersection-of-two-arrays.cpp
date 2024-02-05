@@ -8,13 +8,13 @@ public:
         
         for(int i = 0;i<nums1.size();i++)
             set1.insert(nums1[i]);
-        for(int i = 0;i<nums2.size();i++)
-            set2.insert(nums2[i]);
         
-        for(unordered_set<int>::iterator it = set1.begin();it!=set1.end();it++) {
+        for(vector<int>::iterator it = nums2.begin();it!=nums2.end();it++) {
             int n = *it;
-            if(set2.find(n)!=set2.end())
+            if(set1.find(n)!=set1.end()) {
+                set1.erase(n);
                 vec.push_back(n);
+            }
         }
         return vec;
     }
