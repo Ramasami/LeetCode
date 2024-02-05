@@ -4,8 +4,9 @@ public:
         long visited = 0;
         long multipleVisited = 0;
         int n = s.length();
+        int p;
         for(int i=0;i<n;i++) {
-            int p = s[i] - 'a';
+            p = s[i] - 'a';
             if((visited & (1 << p)) == 0) {
                 visited =  visited | (1 << p);
             } else {
