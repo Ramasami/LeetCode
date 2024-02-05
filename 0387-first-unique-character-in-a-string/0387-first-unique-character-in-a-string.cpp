@@ -17,8 +17,7 @@ public:
         }
         for(int i=0;i<n;i++) {
             int p = s[i] - 'a';
-            x = (1 << p);
-            if(((visited & x) != 0) && ((multipleVisited & x) == 0))
+            if(((visited & (1 << p)) != 0) && ((multipleVisited & (1 << p )) == 0))
                 return i;
         }
         return -1;
