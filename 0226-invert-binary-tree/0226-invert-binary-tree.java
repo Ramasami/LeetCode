@@ -15,17 +15,16 @@
  */
 class Solution {
     public TreeNode invertTree(TreeNode root) {
-        LinkedList<TreeNode> ll = new LinkedList<>();
+        if (root == null) return null;
+        Queue<TreeNode> ll = new LinkedList<>();
         ll.add(root);
         while(!ll.isEmpty()) {
-            TreeNode t = ll.pollFirst();
-            if(t == null)
-                continue;
+            TreeNode t = ll.poll();
             TreeNode left = t.left;
             t.left = t.right;
             t.right = left;
-            ll.addLast(t.left);
-            ll.addLast(t.right);
+            if (t.left != null) ll.add(t.left);
+            if (t.right != null) ll.add(t.right);
         }
         return root;
     }
