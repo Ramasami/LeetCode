@@ -5,7 +5,8 @@ public:
             return false;
         int taken[128];
         int map[128];
-        for (int i=0;i<s.length();i++) {
+        int n = s.length();
+        for (int i=0;i<n;i++) {
             int y = t[i] + 1;
             int x = s[i] + 1;
             if (taken[y] == 0 && map[x] == 0) {
