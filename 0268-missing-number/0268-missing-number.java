@@ -1,10 +1,8 @@
 class Solution {
     public int missingNumber(int[] nums) {
-        int n = nums.length;
-        int x = n;
-        for(int i = 0 ;i<n;i++) {
-            x = (x^i);
-            x = (x^nums[i]);
+        int x = nums.length;
+        for(int i = 0 ;i<nums.length;i++) {
+            x = (x^i^nums[i]);
         }
         return x;
     }
