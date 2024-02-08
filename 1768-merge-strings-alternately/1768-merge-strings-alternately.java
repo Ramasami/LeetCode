@@ -3,7 +3,7 @@ class Solution {
         int n = word1.length();
         int m = word2.length();
         int i = 0;
-        StringBuilder s = new StringBuilder();
+        StringBuilder s = new StringBuilder(n+m);
         while(i<n && i<m) {
             s.append(word1.charAt(i));
             s.append(word2.charAt(i));
