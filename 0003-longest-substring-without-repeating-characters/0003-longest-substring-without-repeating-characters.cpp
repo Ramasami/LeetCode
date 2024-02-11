@@ -16,8 +16,6 @@ public:
                 l++;
             }
             set.insert(c);
-            
-            cout<<l<<" "<<r<<" " <<s[l]<<" "<<s[r]<<"\n";
             ans = max(ans, r-l+1);
         }
         return ans;
