@@ -8,10 +8,9 @@ class Solution {
             if(nums[i] > x) {
                 x = nums[i];
             }
-            nums[i] = -nums[i];
             i++;
             x--;
         }
-        return nums[n-1] < 0;
+        return i>=n;
     }
 }
