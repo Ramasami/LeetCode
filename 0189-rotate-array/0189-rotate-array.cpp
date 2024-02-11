@@ -3,6 +3,7 @@ public:
     void rotate(vector<int>& nums, int k) {
         int n = nums.size();
         k%=n;
+        k = n-k;
         if(k==0)
             return;
         int count = 0;
@@ -10,7 +11,7 @@ public:
             int curr = nums[i];
             int j = i;
             while(true) {
-                int nextJ = next(k, n, j);
+                int nextJ = (j+k)%n;
                 count++;
                 if(nextJ == i) {
                     nums[j] = curr; 
