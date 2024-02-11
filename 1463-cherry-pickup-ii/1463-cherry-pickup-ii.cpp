@@ -3,18 +3,8 @@ public:
     int cherryPickup(vector<vector<int>>& grid) {
         int n = grid.size();
         int m = grid[0].size();
-        vector<vector<vector<int>>> dp;
-        for(int i=0;i<n;i++) {
-            vector<vector<int>> row;
-            for(int j=0;j<m;j++) {
-                vector<int> r1;
-                for(int i=0;i<m;i++) {
-                    r1.push_back(-1);
-                }
-                row.push_back(r1);
-            }
-            dp.push_back(row);
-        }
+        vector<vector<vector<int>>> dp(n,vector<vector<int>>(m, vector<int>(m,-1)));
+        
         dp[0][0][m-1] = grid[0][0] + grid[0][m-1];
         for(int i=1;i<n;i++) {
             for(int r1 = 0;r1<m;r1++) {
