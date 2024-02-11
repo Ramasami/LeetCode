@@ -11,7 +11,7 @@ public:
                 else
                     break;
             }
-            m = min(i+1,n-i+1);
+            m = min(i+1,n-i);
             for(int j=0;j<m;j++) {
                 if(s[i-j] == s[i+j+1])
                     ans++;
