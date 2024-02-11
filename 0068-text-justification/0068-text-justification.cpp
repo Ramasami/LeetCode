@@ -21,14 +21,14 @@ public:
     }
     
     string generate(int l, int r, vector<string>& words, int length, int maxWidth, bool left) {
-        stringstream sb;
+        string sb;
         if (r==l || left) {
             for(int i=l;i<r;i++) {
-                sb<<words[i];
-                sb<<" ";
+                sb+=words[i];
+                sb+=" ";
             }
-            sb<<words[r];
-            addSpaces(sb, maxWidth - length);
+            sb+=words[r];
+            addSpaces(sb, maxWidth - sb.length());
         } else {
             int n = r-l+1;
             int lenWOSpace = length - (n - 1);
@@ -38,22 +38,22 @@ public:
             int i=l;
             int x = spaces%(n-1);
             for(;i<r && j<x;j++,i++) {
-                sb<<words[i];
+                sb+=words[i];
                 addSpaces(sb, numOfSpaces+1);
             }
             for(;i<r;i++) {
-                sb<<words[i];
+                sb+=words[i];
                 addSpaces(sb, numOfSpaces);
             }
-            sb<<words[r];
+            sb+=words[r];
         }
         
         
-        return sb.str();
+        return sb;
     }
     
-    void addSpaces(stringstream &sb, int n) {
+    void addSpaces(string &sb, int n) {
         for(int i=0;i<n;i++)
-            sb<<" ";
+            sb+=" ";
     }
 };
