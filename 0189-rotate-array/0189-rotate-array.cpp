@@ -22,19 +22,5 @@ public:
             }
         }
     }
-    int next(int k, int n, int i) {
-        return (n + i-k)%n;
-    }
-    
-    void swap(int &a, int &b) {
-        int t = a;
-        a = b;
-        b = t;
-    }
-    
-    int gcd(int a, int b) {
-        if(b==0)
-            return a;
-        return gcd(b, a%b);
-    }
+
 };
