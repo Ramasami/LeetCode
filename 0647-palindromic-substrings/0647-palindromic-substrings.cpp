@@ -9,11 +9,11 @@ public:
             int m = min(i+1,n-i+1);
             for(int j=0;j<m;j++) {
                 
-                if(sing && i-j>=0 && i+j<n && s[i-j] == s[i+j])
+                if(sing && s[i-j] == s[i+j])
                     ans++;
                 else
                     sing = false;
-                if(doub && i-j>=0 && i+j+1<n && s[i-j] == s[i+j+1])
+                if(doub && s[i-j] == s[i+j+1])
                     ans++;
                 else
                     doub = false;
