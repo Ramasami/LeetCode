@@ -51,7 +51,6 @@ class Solution {
     }
     
     private void addSpaces(StringBuilder sb, int n) {
-        for(int i=0;i<n;i++)
-            sb.append(" ");
+        sb.append(" ".repeat(n));
     }
 }
