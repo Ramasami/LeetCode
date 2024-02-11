@@ -4,8 +4,6 @@ public:
         int n = nums.size();
         k%=n;
         k = n-k;
-        if(k==0)
-            return;
         int count = 0;
         for(int i=0;count<n;i++) {
             int curr = nums[i];
