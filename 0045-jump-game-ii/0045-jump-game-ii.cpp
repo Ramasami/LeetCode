@@ -11,10 +11,6 @@ public:
                 dp[i+j] = min(dp[i+j], dp[i]+1);
             }
         }
-        // for(int i=0;i<n;i++) {
-        //     cout<<dp[i]<<" ";   
-        // }
-        // cout<<"\n";
         return dp[n-1];
     }
 };
