@@ -15,20 +15,11 @@ public:
         l = 0;
         for(r=0;r<=sb.length();r++) {
             if(r == sb.length() || sb[r] == ' ') {
-                reverse(sb, l, r-1);
+                std::reverse(sb.begin()+l,sb.begin()+r);
                 l = r+1;
             }
         }
         return sb;
     }
     
-    void reverse(string &sb, int l,int r) {
-        while(l<r) {
-            char c = sb[l];
-            sb[l] = sb[r];
-            sb[r] = c;
-            l++;
-            r--;
-        }
-    }
 };
