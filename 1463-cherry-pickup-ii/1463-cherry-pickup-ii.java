@@ -3,14 +3,13 @@ class Solution {
         int n = grid.length;
         int m = grid[0].length;
         int[][][] dp = new int[n][m][m];
-        for(int i=0;i<n;i++) {
+        for(int i=0;i<m;i++) {
             for(int j=0;j<m;j++) {
-                for(int k=0;k<m;k++) {
-                    dp[i][j][k]=-1;
-                }
+                dp[0][i][j]=-1;
             }
         }
         dp[0][0][m-1] = grid[0][0] + grid[0][m-1];
+        printGrid(dp[0],m);
         for(int i=1;i<n;i++) {
             for(int r1=0;r1<m;r1++) {
                 for(int r2=0;r2<m;r2++) {
@@ -28,8 +27,11 @@ class Solution {
                     }
                     if(max != -1)
                         dp[i][r1][r2] = score + max;
+                    else
+                        dp[i][r1][r2] = -1;
                 }
             }
+            printGrid(dp[i],m);
         }
         return getMax(dp[n-1], m);
     }
