@@ -6,7 +6,8 @@ public:
         for(int i=0;i<n;i++) {
             bool sing = true;
             bool doub = true;
-            for(int j=0;j<n;j++) {
+            int m = min(i+1,n-i+1);
+            for(int j=0;j<m;j++) {
                 
                 if(sing && i-j>=0 && i+j<n && s[i-j] == s[i+j])
                     ans++;
