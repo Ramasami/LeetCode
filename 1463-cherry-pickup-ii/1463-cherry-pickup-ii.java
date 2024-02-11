@@ -9,7 +9,7 @@ class Solution {
             }
         }
         dp[0][0][m-1] = grid[0][0] + grid[0][m-1];
-        printGrid(dp[0],m);
+        // printGrid(dp[0],m);
         for(int i=1;i<n;i++) {
             for(int r1=0;r1<m;r1++) {
                 for(int r2=0;r2<m;r2++) {
@@ -31,7 +31,7 @@ class Solution {
                         dp[i][r1][r2] = -1;
                 }
             }
-            printGrid(dp[i],m);
+            // printGrid(dp[i],m);
         }
         return getMax(dp[n-1], m);
     }
