@@ -16,10 +16,6 @@ public:
                 max = j;
             }
         }
-         for(int i=0;i<n;i++) {
-            cout<<dp[i]<<" ";   
-        }
-        cout<<"\n";
         return dp[n-1];
     }
 };
