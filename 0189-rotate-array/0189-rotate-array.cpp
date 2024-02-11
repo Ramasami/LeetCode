@@ -5,12 +5,13 @@ public:
         k%=n;
         if(k==0)
             return;
-        int window = gcd(k,n);
-        for(int i=0;i<window;i++) {
+        int count = 0;
+        for(int i=0;count<n;i++) {
             int curr = nums[i];
             int j = i;
             while(true) {
                 int nextJ = next(k, n, j);
+                count++;
                 if(nextJ == i) {
                     nums[j] = curr; 
                     break;
