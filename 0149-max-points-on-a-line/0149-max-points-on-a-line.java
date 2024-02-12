@@ -1,6 +1,8 @@
 class Solution {
     public int maxPoints(int[][] points) {
         int n = points.length,max = 1;
+        if(n==1)
+            return 1;
         int x1,x2,y1,y2;
         int i,j;
         double angle;
@@ -16,8 +18,7 @@ class Solution {
                 angle = (y1-y2)/(0.0+x1-x2);
                 angleCounter.compute(angle, (k,v)->v==null?2:v+1);
             }
-            for(int count: angleCounter.values())
-                max = Math.max(max, count);
+            max = Math.max(max, Collections.max(angleCounter.values()));
         }
         return max;
     }
