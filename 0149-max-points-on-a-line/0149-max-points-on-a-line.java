@@ -14,20 +14,16 @@ class Solution {
                 int y2 = points[j][1];
                 if(x1==x2) {
                     xAxis++;
-                    System.out.println("("+x1+","+y1+"),("+x2+","+y2+") -> inf");
                 }
                 else {
                     double angle =(y1-y2)/(0.0+x1-x2);
-                    System.out.println("("+x1+","+y1+"),("+x2+","+y2+") -> " + angle);
                     angleCounter.compute(angle, (k,v)->v==null?2:v+1);
                 }
             }
-            System.out.println();
             for(int count: angleCounter.values())
                 xAxis = Math.max(xAxis, count);
             max = Math.max(max, xAxis);
         }
-        System.out.println();
         return max;
     }
 }
