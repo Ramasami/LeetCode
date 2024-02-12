@@ -2,12 +2,13 @@ class Solution {
     public int maxPoints(int[][] points) {
         int n = points.length,max = 1;
         int x1,x2,y1,y2;
+        int i,j;
         double angle;
-        for(int i=0;i<n;i++) {
+        for(i=0;i<n;i++) {
             Map<Double, Integer> angleCounter = new HashMap<>();
              x1 = points[i][0];
              y1 = points[i][1];
-            for(int j=0;j<n;j++) {
+            for(j=0;j<n;j++) {
                 if(i==j)
                     continue;
                 x2 = points[j][0];
