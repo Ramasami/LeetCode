@@ -16,10 +16,10 @@ class Solution {
                 x2 = points[j][0];
                 y2 = points[j][1];
                 angle = (y1-y2)/(0.0+x1-x2);
-                angleCounter.compute(angle, (k,v)->v==null?2:v+1);
+                angleCounter.merge(angle, 1, Integer::sum);
             }
             max = Math.max(max, Collections.max(angleCounter.values()));
         }
-        return max;
+        return max+1;
     }
 }
