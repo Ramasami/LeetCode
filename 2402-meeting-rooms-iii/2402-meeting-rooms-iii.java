@@ -44,11 +44,4 @@ class Solution {
 
         return maxMeetingCountRoom;
     }
-    
-    private void print(Queue<Pair<Integer, Integer>> pq) {
-        for(Pair<Integer,Integer> p:pq) {
-            System.out.println(p);
-        }
-        System.out.println("###");
-    }
 }
