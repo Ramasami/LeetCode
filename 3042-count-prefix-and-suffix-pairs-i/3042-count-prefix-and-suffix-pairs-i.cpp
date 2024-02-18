@@ -20,9 +20,9 @@ public:
             return false;
         if(na == nb)
             return a == b;
-        for(int i=0;i<na;i++) {
+        for(int i=0,j=nb-na;i<na;i++,j++) {
             char c = a[i];
-            if(c != b[i] || c!=b[nb-na + i])
+            if(c != b[i] || c!=b[j])
                 return false;
         }
         return true;
