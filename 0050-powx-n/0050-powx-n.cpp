@@ -1,6 +1,6 @@
 class Solution {
 public:
-    double binaryExp(double x, long long n) {
+    double binaryExp(double x, long n) {
         if (n == 0) {
             return 1;
         }
@@ -22,6 +22,6 @@ public:
     }
 
     double myPow(double x, int n) {
-        return binaryExp(x, (long long) n);
+        return binaryExp(x, (long) n);
     }
 };
