@@ -19,7 +19,7 @@ class Node {
 
 class Solution {
     public List<Integer> preorder(Node root) {
-        List<Integer> ans = new ArrayList<>();
+        List<Integer> ans = new LinkedList<>();
         if(root == null)
             return ans;
         Stack<Node> q = new Stack<>();
