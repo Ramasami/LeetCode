@@ -29,12 +29,11 @@ public:
         while(!st.empty()) {
             Node* top = st.top();
             st.pop();
-            ans.push_back(top->val);
+            ans.insert(ans.begin(),top->val);
             for(auto it=top->children.begin();it!=top->children.end();it++) {
                 st.push(*it);
             }
         }
-        reverse(ans.begin(),ans.end());
         return ans;
     }
 };
