@@ -25,18 +25,16 @@ public:
             return vector<int>();
         stack<Node*> st;
         st.push(root);
-        list<int> ans;
+        vector<int> ans;
         while(!st.empty()) {
             Node* top = st.top();
             st.pop();
-            ans.push_front(top->val);
+            ans.push_back(top->val);
             for(auto it=top->children.begin();it!=top->children.end();it++) {
                 st.push(*it);
             }
         }
-        vector<int> finalAns;
-        for(auto it=ans.begin();it!=ans.end();it++)
-            finalAns.push_back(*it);
-        return finalAns;
+        reverse(ans.begin(),ans.end());
+        return ans;
     }
 };
