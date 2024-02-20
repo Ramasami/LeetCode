@@ -10,7 +10,6 @@ public:
                 if(nums2[r]<x)
                     break;
                 r++;
-                cout<<l<<" "<<r<<"\n";
             }
             ans = max(ans, r-l-1);
             l++;
