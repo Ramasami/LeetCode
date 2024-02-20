@@ -23,15 +23,15 @@ public:
     vector<int> postorder(Node* root) {
         if (root == NULL)
             return vector<int>();
-        list<Node*> st;
-        st.push_back(root);
+        stack<Node*> st;
+        st.push(root);
         list<int> ans;
         while(!st.empty()) {
-            Node* top = st.back();
-            st.pop_back();
+            Node* top = st.top();
+            st.pop();
             ans.push_front(top->val);
             for(auto it=top->children.begin();it!=top->children.end();it++) {
-                st.push_back(*it);
+                st.push(*it);
             }
         }
         vector<int> finalAns;
