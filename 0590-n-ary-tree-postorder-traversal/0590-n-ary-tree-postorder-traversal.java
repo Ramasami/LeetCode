@@ -22,13 +22,13 @@ class Solution {
         List<Integer> ans = new LinkedList<>();
         if(root==null)
             return ans;
-        LinkedList<Node> st = new LinkedList<>();
+        Stack<Node> st = new Stack<>();
         st.push(root);
         while(!st.isEmpty()) {
-            Node top = st.pollLast();
+            Node top = st.pop();
             ans.addFirst(top.val);
             for(Node n:top.children)
-                st.add(n);
+                st.push(n);
         }
         return ans;
     }
