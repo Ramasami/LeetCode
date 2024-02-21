@@ -23,11 +23,4 @@ public:
         if(t<=n && t>0)
             parse(nums, t-1, n);
     }
-    
-    void print(vector<int> nums) {
-         for(int a: nums) {
-                cout<<a<<" ";
-            }
-            cout<<"\n";
-    }
 };
