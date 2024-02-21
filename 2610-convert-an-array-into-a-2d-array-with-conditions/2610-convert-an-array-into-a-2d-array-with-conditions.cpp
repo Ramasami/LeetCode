@@ -3,7 +3,6 @@ public:
     vector<vector<int>> findMatrix(vector<int>& nums) {
         int count[201]={0};
         vector<vector<int>> ans;
-        int m = 0;
         for(int n:nums) {
             count[n]++;
             if(ans.size()<count[n])
