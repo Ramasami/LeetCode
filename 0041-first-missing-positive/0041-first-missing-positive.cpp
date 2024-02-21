@@ -7,20 +7,18 @@ public:
             if(nums[i] == 0)
                 nums[i] = c;
         for(int i=0;i<n;i++) {
-            if(nums[i]<=n && nums[i] > 0) {
-                parse(nums, nums[i]-1, n);
+            int t = nums[i];
+            while(true) {
+                if(t<=n && t > 0) {
+                    int t2 = nums[t-1];
+                    nums[t-1] = 0;
+                    t = t2;
+                } else break;
             }
         }
         for(int i=0;i<n;i++)
             if(nums[i]!=0)
                 return i+1;
         return n+1;
-    }
-    
-    void parse(vector<int>& nums, int i, int n) {
-        int t = nums[i];
-        nums[i] = 0;
-        if(t<=n && t>0)
-            parse(nums, t-1, n);
     }
 };
