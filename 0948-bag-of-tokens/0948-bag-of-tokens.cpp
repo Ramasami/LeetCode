@@ -10,13 +10,11 @@ public:
                 power-=tokens[l];
                 l++;
                 score++;
-                cout<<"@"<<l<<" "<<r<<" "<<score<<" "<<power<<"\n";
             }
             if(score!=0&&l<r && tokens[r] >= tokens[l]) {
                 power+=tokens[r];
                 r--;
                 score--;
-                cout<<"#"<<l<<" "<<r<<" "<<score<<" "<<power<<"\n";
             } else
                 break;
         }
