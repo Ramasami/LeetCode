@@ -5,11 +5,9 @@ class Solution {
         Arrays.fill(ans, 1);
         int l = 1;
         int r = 1;
-        for(int i=0;i<n;i++) {
-            if(i>0) {
-                l *= a[i-1];
-                r *= a[n-i];
-            }
+        for(int i=1;i<n;i++) {
+            l *= a[i-1];
+            r *= a[n-i];
             ans[i]*=l;
             ans[n-i-1]*=r;
         }
