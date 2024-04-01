@@ -24,13 +24,14 @@ class Solution {
     }
     
     private int findPivot(int[] nums, int l, int r,int n) {
-        if(l>r)
-            return l;
-        int m = l + (r-l)/2;
-        if(nums[n-1]<nums[m]) {
-            return findPivot(nums, m+1, r, n);
-        } else {
-            return findPivot(nums, l, m-1, n);
+        while(l<=r) {
+            int m = l + (r-l)/2;
+            if(nums[n-1]<nums[m]) {
+                return findPivot(nums, m+1, r, n);
+            } else {
+                return findPivot(nums, l, m-1, n);
+            }
         }
+        return l;
     }
 }
