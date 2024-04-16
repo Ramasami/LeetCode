@@ -24,8 +24,8 @@ class Solution {
         } else if (depth == 1) {
             return new TreeNode(val, root, null);
         } else {
-            addOneRow(root.left, val, depth-1);
-            addOneRow(root.right, val, depth-1);
+            root.left = addOneRow(root.left, val, depth-1);
+            root.right = addOneRow(root.right, val, depth-1);
             return root;
         }
     }
