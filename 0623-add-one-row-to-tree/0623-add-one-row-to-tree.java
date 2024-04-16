@@ -18,18 +18,11 @@ class Solution {
         if(root == null ) {
             return null;
         } else if(depth == 2) {
-            TreeNode left = new TreeNode(val);
-            left.left = root.left;
-            root.left = left;
-            
-            TreeNode right = new TreeNode(val);
-            right.right = root.right;
-            root.right = right;
+            root.left = new TreeNode(val, root.left, null);
+            root.right = new TreeNode(val, null, root.right);
             return root;
         } else if (depth == 1) {
-            TreeNode left = new TreeNode(val);
-            left.left = root;
-            return left;            
+            return new TreeNode(val, root, null);
         } else {
             addOneRow(root.left, val, depth-1);
             addOneRow(root.right, val, depth-1);
