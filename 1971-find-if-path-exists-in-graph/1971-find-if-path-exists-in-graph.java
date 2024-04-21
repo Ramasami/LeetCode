@@ -2,28 +2,21 @@ class Solution {
     public boolean validPath(int n, int[][] edges, int source, int destination) {
         if(source == destination)
             return true;
-        Map<Integer, LinkedList<Integer>> adMat = new HashMap<>();
-        Set<Integer> visited = new HashSet<>();
+        Map<Integer, List<Integer>> adMat = new HashMap<>();
+        boolean[] visited = new boolean[n];
         for(int[] edge: edges) {
-            adMat.compute(edge[0], (k,v)->{
-                v = v == null?new LinkedList<>():v;
-                v.add(edge[1]);
-                return v;
-            });
-            adMat.compute(edge[1], (k,v)->{
-                v = v == null?new LinkedList<>():v;
-                v.add(edge[0]);
-                return v;
-            });
+            adMat.computeIfAbsent(edge[0], val->new LinkedList<>()).add(edge[1]);
+            adMat.computeIfAbsent(edge[1], val->new LinkedList<>()).add(edge[0]);
         }
         Queue<Integer> q = new LinkedList<>();
         q.add(source);
+        visited[source] = true;
         int curr;
         while(!q.isEmpty()) {
             curr = q.poll();
             for(int next: adMat.get(curr)) {
-                if(!visited.contains(next)) {
-                    visited.add(next);
+                if(!visited[next]) {
+                    visited[next] = true;
                     if (next == destination)
                         return true;
                     q.add(next);
