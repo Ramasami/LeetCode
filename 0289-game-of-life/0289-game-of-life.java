@@ -10,7 +10,28 @@ class Solution {
         int m = board[0].length;
         for(int i=0;i<n;i++) {
             for(int j=0;j<m;j++) {
-                int neighbour = getNeighbour(board, i, j);
+                
+                int ans = 0;
+                int x = i, y = j;
+                if (x != n-1) {
+                    ans+=(board[x+1][y]%2);
+                    if (y != m-1)
+                        ans+=(board[x+1][y+1]%2);
+                    if (y != 0)
+                        ans+=(board[x+1][y-1]%2);
+                }
+                if (x != 0) {
+                    ans+=(board[x-1][y]%2);
+                    if (y != m-1)
+                        ans+=(board[x-1][y+1]%2);
+                    if (y != 0)
+                        ans+=(board[x-1][y-1]%2);
+                }
+                if (y != m-1)
+                    ans+=(board[x][y+1]%2);
+                if (y != 0)
+                    ans+=(board[x][y-1]%2);
+                int neighbour = ans;
                 int curr = board[i][j];
                 if (neighbour < 2 && curr == 1) {
                     board[i][j] = 3;
@@ -30,28 +51,4 @@ class Solution {
         }
     }
     
-    private int getNeighbour(int[][] board, int x, int y) {
-        int n = board.length;
-        int m = board[0].length;
-        int ans = 0;
-        if (x != n-1) {
-            ans+=(board[x+1][y]%2);
-            if (y != m-1)
-                ans+=(board[x+1][y+1]%2);
-            if (y != 0)
-                ans+=(board[x+1][y-1]%2);
-        }
-        if (x != 0) {
-            ans+=(board[x-1][y]%2);
-            if (y != m-1)
-                ans+=(board[x-1][y+1]%2);
-            if (y != 0)
-                ans+=(board[x-1][y-1]%2);
-        }
-        if (y != m-1)
-            ans+=(board[x][y+1]%2);
-        if (y != 0)
-            ans+=(board[x][y-1]%2);
-        return ans;
-    }
 }
