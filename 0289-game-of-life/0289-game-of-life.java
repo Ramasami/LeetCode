@@ -11,7 +11,6 @@ class Solution {
         for(int i=0;i<n;i++) {
             for(int j=0;j<m;j++) {
                 int neighbour = getNeighbour(board, i, j);
-                System.out.println(i + " " + j + " " + neighbour);
                 int curr = board[i][j];
                 if (neighbour < 2 && curr == 1) {
                     board[i][j] = 3;
