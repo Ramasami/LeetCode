@@ -5,7 +5,7 @@ class Solution {
         int ans = 0;
         for(int i=0;i<n;i++) {
             if(citations[i] >= n - i) {
-                ans = Math.max(n-i, ans);
+                ans = Math.max(n-i, ans); break;
             }
         }
         return ans;
