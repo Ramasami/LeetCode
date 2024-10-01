@@ -15,8 +15,12 @@ class Solution {
             }
         }
 
-    
+        StringBuilder result = new StringBuilder();
+        for (String dir : stack) {
+            result.append("/");
+            result.append(dir);
+        }
 
-        return "/" + stack.stream().collect(Collectors.joining("/"));
+        return result.length() > 0 ? result.toString() : "/";
     }
 }
