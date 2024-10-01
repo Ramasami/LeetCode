@@ -1,6 +1,6 @@
 class Solution {
     public int evalRPN(String[] tokens) {
-        LinkedList<Integer> s = new LinkedList<Integer>();
+        Stack<Integer> s = new Stack<>();
         for(String token: tokens) {
             switch(token) {
                 case "+": {
