@@ -5,12 +5,10 @@ class Solution {
             if (i < 0)
                 i = (i%k)+k;
             i%=k;
-            if (i!=0) {
-                if(i>k/2)
-                   m[k-i]--; 
-                else
-                    m[i]++;
-            }
+            if(i>k/2)
+               m[k-i]--; 
+            else
+                m[i]++;
             
         }
         for(int i=1;i<=(k-1)/2;i++) {
