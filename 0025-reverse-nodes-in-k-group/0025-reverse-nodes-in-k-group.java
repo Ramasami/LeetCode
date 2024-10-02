@@ -25,16 +25,12 @@ class Solution {
         ListNode prev = null;
         ListNode next = head.next;
         for(int i=0;i<k;i++) {
-            if(curr == null) {
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+            if (curr == null)
                 return prev;
-            } else {
-                curr.next = prev;
-                prev = curr;
-                curr = next;
-                if (curr == null)
-                    return prev;
-                next = curr.next;
-            }
+            next = curr.next;
         }
         head.next = reverseKGroup(curr, k);
         return prev;
