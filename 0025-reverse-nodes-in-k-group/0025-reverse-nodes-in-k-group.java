@@ -16,7 +16,6 @@ class Solution {
             if(temp == null)
                 return head;
             temp = temp.next;
-   
             x++;
         }
         
