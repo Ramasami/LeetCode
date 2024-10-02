@@ -1,56 +1,97 @@
+class ListNode {
+    int key;
+    int val;
+    ListNode next;
+    ListNode prev;
+
+    public ListNode(int key, int val) {
+        this.key = key;
+        this.val = val;
+    }
+}
+
 class LRUCache {
     
-    Map<Integer, Pair<Integer, Integer>> m;
-    Map<Integer, Integer> tm;
+    Map<Integer, ListNode> m;
     int capacity;
-    int t;
-    int last;
+    ListNode head;
+    ListNode tail;
 
     public LRUCache(int capacity) {
         this.m = new HashMap<>(capacity);
-        this.tm = new HashMap<>();
         this.capacity = capacity;
-        this.t = 0;
-        this.last = 0;
+        head = new ListNode(-1, -1);
+        tail = head;
     }
     
     public int get(int key) {
-        Integer value = removeKey(key);
-        if (value!=null) {
-            int c = t++;
-            tm.put(c, key);
-            m.put(key, new Pair<>(c, value));
-            return value;
-        } else {
-            return -1;
+        // System.out.println(key);
+        try {
+            if(m.containsKey(key)) {
+                return reset(key).val;
+            } else {
+                return -1;
+            }
+        } finally {
+            check();
         }
     }
     
     public void put(int key, int value) {
-        removeKey(key);
-        int c = t++;
-        tm.put(c, key);
-        m.put(key, new Pair<>(c, value));
-        check();
-    }
-    
-    private Integer removeKey(int key) {
-        if (m.containsKey(key)) {
-            tm.remove(m.get(key).getKey());
-            return m.get(key).getValue();
-        } else {
-            return null;
-        }
-    }
-    
-    private void check() {
-        while(m.size() > capacity) {
-            if(tm.containsKey(last)) {
-                m.remove(tm.get(last));
-                tm.remove(last);
+        // System.out.println(key + " " + value);
+         try {
+                 if(m.containsKey(key)) {
+                reset(key).val = value;
+            } else {
+                ListNode temp = new ListNode(key, value);
+                m.put(key, temp);
+                head.next = temp;
+                temp.prev = head;
+                head = temp;
+            } 
+         }finally {
+            check();
             }
-            last++;
+        
+    }
+       
+           
+    private void check() {
+        while (m.size() > capacity) {
+            if (m.containsKey(tail.key)) {
+                m.remove(tail.key);
+            }
+            tail = tail.next;
+            tail.prev = null;
         }
+           // ListNode temp = tail;
+        // while(temp!=null) {
+            // System.out.print(temp.key + "=" + temp.val + "," + (temp.prev!=null?temp.prev.key:"#") + " ");
+            // temp = temp.next;
+        // }
+        // System.out.println();
+    }
+           
+           
+           
+    private ListNode reset(int key) {
+        ListNode temp = m.get(key);
+        if (temp.next!= null) {
+            if (temp.prev!=null)
+                temp.prev.next = temp.next;
+            else
+                tail = tail.next;
+            if (head.prev == temp) {
+                head.prev = temp.prev;
+            }
+            temp.next.prev = temp.prev;
+            head.next = temp;
+            temp.prev = head;
+            temp.next = null;
+            head = temp;
+        }
+        
+        return temp;
     }
 }
 
