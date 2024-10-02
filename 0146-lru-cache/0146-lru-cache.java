@@ -25,34 +25,24 @@ class LRUCache {
     }
     
     public int get(int key) {
-        // System.out.println(key);
-        try {
-            if(m.containsKey(key)) {
-                return reset(key).val;
-            } else {
-                return -1;
-            }
-        } finally {
-            check();
+        if(m.containsKey(key)) {
+            return reset(key).val;
+        } else {
+            return -1;
         }
     }
     
     public void put(int key, int value) {
-        // System.out.println(key + " " + value);
-         try {
-                 if(m.containsKey(key)) {
-                reset(key).val = value;
-            } else {
-                ListNode temp = new ListNode(key, value);
-                m.put(key, temp);
-                head.next = temp;
-                temp.prev = head;
-                head = temp;
-            } 
-         }finally {
+        if(m.containsKey(key)) {
+            reset(key).val = value;
+        } else {
+            ListNode temp = new ListNode(key, value);
+            m.put(key, temp);
+            head.next = temp;
+            temp.prev = head;
+            head = temp;
             check();
-            }
-        
+        } 
     }
        
            
@@ -64,12 +54,6 @@ class LRUCache {
             tail = tail.next;
             tail.prev = null;
         }
-           // ListNode temp = tail;
-        // while(temp!=null) {
-            // System.out.print(temp.key + "=" + temp.val + "," + (temp.prev!=null?temp.prev.key:"#") + " ");
-            // temp = temp.next;
-        // }
-        // System.out.println();
     }
            
            
