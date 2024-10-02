@@ -19,7 +19,6 @@ class Solution {
         if(x<k)
             return head;
         
-        System.out.println();
         if (head == null)
             return null;
         ListNode curr = head;
